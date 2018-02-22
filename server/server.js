@@ -35,19 +35,20 @@ app.get('/todos', (req, res) => {
 //GET /todo/1234346
 app.get('/todos/:id', (req, res) => {
   var id = req.params.id;
+
   if(!ObjectID.isValid(id)) {
     //return console.log('ID not valid');
-    res.status(404).send();
+    return res.status(404).send();
   }
 
   Todo.findById(id).then((todo) => {
-    if(todo){
-      res.send({todo});
-    } if(!todo) {
-      res.status(404).send();
+    if(!todo) {
+      return res.status(404).send();
     }
-  }, (e) => {
-    res.status(400).send(e);
+
+    res.send({todo});
+  }).catch((e) => {
+    res.status(400).send();
   });
 });
 
