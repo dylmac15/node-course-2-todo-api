@@ -34,7 +34,6 @@ describe('POST /todos', () => {
   });
 
   it('Should not create todo with invalid body data', (done) => {
-    var text = 'Test todo text';
 
     request(app)
       .post('/todos')
