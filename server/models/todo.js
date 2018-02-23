@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+// creating a new model for Todo collection for my local database Todo
 var Todo = mongoose.model('Todo', {
   text: {
     type: String,
