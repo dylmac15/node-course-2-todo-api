@@ -4,7 +4,7 @@ var {MongoClient} = require('mongodb');
 const MONGODB_URL = 'mongodb://dyl:1234@ds245548.mlab.com:45548/todo';
 
 mongoose.Promise = global.Promise;
-MongoClient.connect(MONGODB_URL, (err, db) => {
+MongoClient.connect(MONGODB_URL || 'mongodb://localhost:27017/TodoApp', (err, db) => {
   if(err) {
     return console.log(err);
   }
