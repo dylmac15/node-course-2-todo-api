@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 const MONGODB_URL = 'mongodb://dyl:1234@ds245548.mlab.com:45548/todo';
 
 // connect to database
-	mongoose.connect(process.env.MONGODB_URI,{
+	mongoose.connect(process.env.MONGODB_URI || MONGODB_URL,{
 		//useMongoClient: true,
 		promiseLibrary: global.Promise
 	});
