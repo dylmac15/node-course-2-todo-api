@@ -68,24 +68,24 @@ UserSchema.statics.findByToken = function (token) {
   });
 };
 
-// UserSchema.pre('save', function (next) {
-//   var user = this;
-//
-//   if(user.isModified('password')) {
-//     // user.password
-//     bcrypt.genSalt(10, (err, salt) => {
-//       bcrypt.hash(user.password, salt, (err, hash) => {
-//         user.password = hash;
-//         next();
-//       });
-//     });
-//
-//     // user.password = hash;
-//     // next();
-//   } else {
-//     next();
-//   }
-// });
+UserSchema.pre('save', function (next) {
+  var user = this;
+
+  if(user.isModified('password')) {
+    // user.password
+    bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.hash(user.password, salt, (err, hash) => {
+        user.password = hash;
+        next();
+      });
+    });
+
+    // user.password = hash;
+    // next();
+  } else {
+    next();
+  }
+});
 
 //creating  a new model for a user collection in my local database
 var User = mongoose.model('User', UserSchema);
