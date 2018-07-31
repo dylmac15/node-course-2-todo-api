@@ -3,7 +3,11 @@ var mongoose = require('mongoose');
 
 const MONGODB_URL = 'mongodb://dylan:dyl0915@ds159661.mlab.com:59661/todoapp';
 
-// connect to database
+
+
+
+
+// connect to MONGODB_URL (only for heroku database) and add process.env.MONGODB_URI ||  for local database
 	mongoose.connect(MONGODB_URL,{
 		useMongoClient: true,
 		promiseLibrary: global.Promise
