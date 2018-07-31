@@ -5,7 +5,7 @@ const MONGODB_URL = 'mongodb://dylan:dyl0915@ds159961.mlab.com:59661/todo';
 
 // connect to database
 	mongoose.connect(MONGODB_URL,{
-		//useMongoClient: true,
+		useMongoClient: true,
 		promiseLibrary: global.Promise
 	});
 
