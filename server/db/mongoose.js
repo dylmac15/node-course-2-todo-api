@@ -8,8 +8,9 @@ const MONGODB_URL = 'mongodb://dylan:dyl0915@ds159661.mlab.com:59661/todoapp';
 
 
 // connect to MONGODB_URL (only for heroku database) and add process.env.MONGODB_URI ||  for local database
-	mongoose.connect(MONGODB_URL,{
-		useMongoClient: true,
+//make sure in postman to be in Todo app local or todo app heroku
+	mongoose.connect(process.env.MONGODB_URI || MONGODB_URL,{
+		//useMongoClient: true,
 		promiseLibrary: global.Promise
 	});
 
