@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 //var {MongoClient} = require('mongodb');
 
-const MONGODB_URL = 'mongodb://dyl:1234@ds245548.mlab.com:45548/todo';
+const MONGODB_URL = 'mongodb://dylan:dyl0915@ds159961.mlab.com:59661/todo';
 
 // connect to database
-	mongoose.connect(process.env.MONGODB_URI || MONGODB_URL,{
+	mongoose.connect(MONGODB_URL,{
 		//useMongoClient: true,
 		promiseLibrary: global.Promise
 	});
